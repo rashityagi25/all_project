@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login - Metro Travel App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Metro Travel App</h1>
+    <nav>
+      <a href="home.html">Home</a>
+       <a href="registration.html">registration</a>
+      <a href="router.html">Plan Route</a>
+      <a href="recharge.html">Recharge</a>
+      <a href="booking.html">Book Ticket</a>
+      <a href="pay.html">Payment</a>
+    </nav>
+  </header>
+
+  <div class="login-container">
+    <h2>Login to Your Account</h2>
+    <form method="POST" action="/cgi-bin/my_cgi_prg/login.cgi" >
+
+      <input type="text" name="username" placeholder="Enter Username" required>
+      <input type="password" name="password" placeholder="Enter Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="DSproject/registration.html">Register here</a></p>
+  </div>
+
+  <footer>
+    <h>&copy; 2025 Metro Travel App</h>
+  </footer>
+</body>
+</html>

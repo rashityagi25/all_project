@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>Metro Ticket Payment</h2>
+    <nav>
+      <a href="login.html">Login</a>
+      <a href="registration.html">Registration</a>
+      <a href="home.html">Home</a>
+      <a href="router.html">Plan Route</a>
+      <a href="booking.html">Book Ticket</a>
+      <a href="recharge.html">Recharge</a>
+    </nav>
+  </header>
+  <div>
+    <form method="POST" action="/cgi-bin/my_cgi_prg/payment.cgi">
+      Username: <input type="text" name="username" required><br>
+      Train ID: <input type="text" name="train_id" required><br>
+      Seat No: <input type="number" name="seat_no" required><br>
+      Card Number: <input type="text" name="card" maxlength="16" required><br>
+      Expiry (MM/YY): <input type="text" name="expiry" required><br>
+      CVV: <input type="password" name="cvv" maxlength="4" required><br>
+      <button type="submit">Pay Now</button>
+    </form>
+  </div>
+  <footer>
+    <p>&copy; 2025 Metro Travel App</p>
+  </footer>
+</body>
+</html>

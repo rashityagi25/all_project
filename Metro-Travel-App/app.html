@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Metro Route Planner</title>
+  <style>
+    body {
+      background-color: #e6f2ff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+    }
+    nav {
+      background-color: #003366;
+      overflow: hidden;
+    }
+    nav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 12px 16px;
+      text-decoration: none;
+    }
+    nav a:hover {
+      background-color: #0059b3;
+    }
+    .planner-box {
+      background: white;
+      width: 350px;
+      margin: 80px auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #003366;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0059b3;
+    }
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Metro Route Planner</header>
+  
+  <nav>
+    <a href="#">Login</a>
+    <a href="#">Registration</a>
+    <a href="#">Home</a>
+    <a href="#">Recharge</a>
+    <a href="#">Book Ticket</a>
+    <a href="#">Payment</a>
+  </nav>
+
+  <div class="planner-box">
+    <label for="fromStation">From Station:</label>
+    <select id="fromStation">
+      <option value="">-- Select Station --</option>
+      <option value="Rajiv Chowk">Rajiv Chowk</option>
+      <option value="Kashmere Gate">Kashmere Gate</option>
+      <option value="Dwarka">Dwarka</option>
+      <option value="Noida City Centre">Noida City Centre</option>
+      <option value="Botanical Garden">Botanical Garden</option>
+    </select>
+
+    <label for="toStation">To Station:</label>
+    <select id="toStation">
+      <option value="">-- Select Station --</option>
+      <option value="Rajiv Chowk">Rajiv Chowk</option>
+      <option value="Kashmere Gate">Kashmere Gate</option>
+      <option value="Dwarka">Dwarka</option>
+      <option value="Noida City Centre">Noida City Centre</option>
+      <option value="Botanical Garden">Botanical Garden</option>
+    </select>
+
+    <button onclick="checkRoute()">Check Route</button>
+
+    <div class="result" id="routeResult"></div>
+  </div>
+
+  <script>
+    function checkRoute() {
+      var from = document.getElementById("fromStation").value;
+      var to = document.getElementById("toStation").value;
+      var result = document.getElementById("routeResult");
+
+      if(from === "" || to === "") {
+        result.innerHTML = "Please select both stations!";
+      } else if(from === to) {
+        result.innerHTML = "From and To stations cannot be the same.";
+      } else {
+        result.innerHTML = "Route from <b>" + from + "</b> to <b>" + to + "</b> available!";
+      }
+    }
+  </script>
+
+</body>
+</html>

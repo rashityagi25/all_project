@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register - Metro Travel App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h2>Register New Account</h2>
+    <nav>
+      <a href="login.html">Login</a>
+      <a href="home.html">Home</a>
+      <a href="router.html">Plan Route</a>
+      <a href="booking.html">Book Ticket</a>
+      <a href="recharge.html">Recharge</a>
+      <a href="pay.html">Payment</a>
+    </nav>
+  </header>
+
+  <div>
+    <form method="POST" action="/cgi-bin/my_cgi_prg/regis.cgi">
+      Full Name: <input type="text" name="name" required><br>
+      Username: <input type="text" name="username" required><br>
+      Email: <input type="email" name="email" required><br>
+      Mobile Number: <input type="text" name="mobile" maxlength="10" pattern="[0-9]{10}" required><br>
+      Password: <input type="password" name="password" required><br>
+      Confirm Password: <input type="password" name="confirm_password" required><br>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Metro Travel App</p>
+  </footer>
+
+</body>
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Your Ticket</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Book Ticket</h1>
+    <nav>
+      <a href="login.html">login</a>
+      <a href="registration.html">registration</a>
+      <a href="home.html">Home</a>
+      <a href="router.html">Plan Route</a>
+      <a href="recharge.html">Recharge</a>
+      <a href="pay.html">payment</a>
+    </nav>
+  </header>
+  <div>
+    <form method="POST" action="/cgi-bin/my_cgi_prg/book_ticket.cgi">
+      <label for="name">Passenger Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="source">From Station:</label>
+      <select id="source" name="source" required>
+        <option value="">-- Select Station --</option>
+        <option value="Rajiv Chowk">Rajiv Chowk</option>
+        <option value="Kashmere Gate">Kashmere Gate</option>
+        <option value="Dwarka">Dwarka</option>
+        <option value="Noida City Centre">Noida City Centre</option>
+        <option value="Botanical Garden">Botanical Garden</option>
+      </select>
+
+      <label for="destination">To Station:</label>
+      <select id="destination" name="destination" required>
+        <option value="">-- Select Station --</option>
+        <option value="Rajiv Chowk">Rajiv Chowk</option>
+        <option value="Kashmere Gate">Kashmere Gate</option>
+        <option value="Dwarka">Dwarka</option>
+        <option value="Noida City Centre">Noida City Centre</option>
+        <option value="Botanical Garden">Botanical Garden</option>
+      </select>
+
+      <label for="date">Travel Date:</label>
+      <input type="date" id="date" name="date" required />
+
+      <button type="submit">Book Ticket</button>
+    </form>
+  </div>
+  <footer>
+    <p>&copy; 2025 Metro Travel App</p>
+  </footer>
+</body>
+</html>

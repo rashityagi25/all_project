@@ -1,0 +1,2 @@
+Noida City Centre -> Botanical Garden -> Rajiv Chowk -> New Delhi
+New Delhi -> Rajiv Chowk -> Botanical Garden -> Noida City Centre

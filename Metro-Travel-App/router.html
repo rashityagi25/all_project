@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plan Your Metro Route</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Route Planner</h1>
+    <nav>
+      <a href="login.html">login</a>
+      <a href="registration.html">registration</a>
+      <a href="home.html">Home</a>
+      <a href="recharge.html">Recharge</a>
+      <a href="booking.html">Book Ticket</a>
+      <a href="pay.html">payment</a>
+    </nav>
+  </header>
+
+  <div>
+    <form method="GET" action="/cgi-bin/my_cgi_prg/metro_routes.cgi">
+      <label for="source">From Station:</label>
+      <select id="source" name="source" required>
+        <option value="">-- Select Station --</option>
+        <option value="Rajiv Chowk">Rajiv Chowk</option>
+        <option value="Kashmere Gate">Kashmere Gate</option>
+        <option value="Dwarka">Dwarka</option>
+        <option value="Noida City Centre">Noida City Centre</option>
+        <option value="Botanical Garden">Botanical Garden</option>
+      </select>
+
+      <label for="destination">To Station:</label>
+      <select id="destination" name="destination" required>
+        <option value="">-- Select Station --</option>
+        <option value="Rajiv Chowk">Rajiv Chowk</option>
+        <option value="Kashmere Gate">Kashmere Gate</option>
+        <option value="Dwarka">Dwarka</option>
+        <option value="Noida City Centre">Noida City Centre</option>
+        <option value="Botanical Garden">Botanical Garden</option>
+      </select>
+
+      <button type="submit">Check Route</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Metro Travel App</p>
+  </footer>
+
+</body>
+</html>
