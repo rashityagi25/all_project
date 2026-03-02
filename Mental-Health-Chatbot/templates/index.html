@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mental Health Chatbot</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div class="box">
+  <h1>Mental Health Chatbot</h1>
+  <input id="user" placeholder="Username">
+  <input id="pass" placeholder="Password" type="password">
+  <button onclick="signup()">Sign Up</button>
+  <button onclick="login()">Login</button>
+  <p id="msg"></p>
+</div>
+
+<script>
+async function signup(){
+  let res = await fetch('/signup', {method:'POST', body:new URLSearchParams({username:user.value, password:pass.value})});
+  let j = await res.json();
+  msg.innerText = j.ok ? "Signup successful!" : j.msg;
+}
+async function login(){
+  let res = await fetch('/login', {method:'POST', body:new URLSearchParams({username:user.value, password:pass.value})});
+  let j = await res.json();
+  if(j.ok) window.location='/chat';
+  else msg.innerText = j.msg;
+}
+</script>
+</body>
+</html>

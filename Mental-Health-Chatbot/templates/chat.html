@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div class="chatbox">
+  <h2>Welcome, {{ username }}</h2>
+  <textarea id="txt" placeholder="Type how you feel..."></textarea>
+  <button onclick="send()">Send</button>
+  <button onclick="recordVoice()">🎤 Record Voice</button>
+  <button onclick="detectFace()">📷 Open Camera</button>
+  <div id="output"></div>
+</div>
+
+<script>
+async function send(){
+  const text = txt.value;
+  let res = await fetch('/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});
+  let j = await res.json();
+  output.innerHTML = `<b>Mood:</b> ${j.mood}<br>${j.feedback}`;
+}
+
+async function recordVoice(){
+  let stream = await navigator.mediaDevices.getUserMedia({audio:true});
+  const mediaRecorder = new MediaRecorder(stream);
+  let chunks = [];
+  mediaRecorder.ondataavailable = e => chunks.push(e.data);
+  mediaRecorder.onstop = async () => {
+    const blob = new Blob(chunks, {type:'audio/webm'});
+    const form = new FormData();
+    form.append("audio", blob, "voice.webm");
+    let res = await fetch('/voice', {method:'POST', body:form});
+    let j = await res.json();
+    output.innerHTML = `<b>Mood:</b> ${j.mood}<br>${j.feedback}<br><i>Transcribed:</i> ${j.text}`;
+  };
+  mediaRecorder.start();
+  setTimeout(()=>mediaRecorder.stop(),5000);
+}
+
+async function detectFace(){
+  let res = await fetch('/camera');
+  let j = await res.json();
+  output.innerHTML = `<b>Mood (from camera):</b> ${j.mood}<br>${j.feedback}`;
+}
+</script>
+</body>
+</html>
