@@ -1,0 +1,15 @@
+# IntelliJ IDEA
+.idea/
+
+# Java
+*.class
+target/
+
+# Node React
+node_modules/
+
+# Environment files
+.env
+
+# Logs
+*.log
